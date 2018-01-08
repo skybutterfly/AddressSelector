@@ -91,17 +91,22 @@ export default class AddressDropdown extends React.PureComponent {
 
     render(){
       const { selectYear, selectMonth, line1, line2, town, country, selectAddress } = this.state;
-      const years = [ '0 Years', '1 Year', '2 Years', '3 Years' ];
-      const months = [ '1 Month', '2 Months', '3 Months', '4 Month', '5 Months', '6 Months', '7 Month', '8 Months', '9 Months', '10 Month', '11 Months', '12 Months' ];
-      const disabled = (selectAddress === 'Select an address') || (this.state.selectMonth === 'Select month(s)') || (this.state.selectYear === 'Select year(s)') ? true : false;
+      const years = [ '< 1 Years', '1 Year', '2 Years', '3 Years <' ];
+      const months = [ '1 Month', '2 Months', '3 Months', '4 Month', '5 Months', '6 Months', '7 Month', '8 Months', '9 Months', '10 Month', '11 Months' ];
+      const displayYears = this.state.selectYear === '> 3 Years' ? 'More than' : this.state.selectYear;
+      const displayMonths = this.state.selectYear === '> 3 Years' ? '3 Years' : this.state.selectMonth;
       const emptyList = !this.state.addressList[0];
+      const disabled = (selectAddress === 'Select an address')
+            || (this.state.selectMonth === 'Select month(s)')
+            || (this.state.selectYear === 'Select year(s)') ?
+             true : false;
 
       return(
           <div className='section'>
-              <p>How long did you stay at your current address?</p>
+              <p>How long did you stay at your <strong>current address</strong>?</p>
               <div className='dropdown-container'>
               <Dropdown id={ this.getId() }>
-            			<Button className='dropdown-select' bsRole='toggle' bsStyle="info">{ this.state.selectYear }<i class="fa fa-chevron-down" aria-hidden="true"></i></Button>
+            			<Button className='dropdown-select' bsRole='toggle' bsStyle="info">{ displayYears }<i class="fa fa-chevron-down" aria-hidden="true"></i></Button>
             			<Dropdown.Menu bsRole='menu'>
                       { years.map((year, key) =>
                         <MenuItem id={ key+1 } key={ key } eventKey={ year } onSelect={this._handleSelectedYear}>{ year }</MenuItem>
@@ -110,7 +115,7 @@ export default class AddressDropdown extends React.PureComponent {
 		           </Dropdown>
 
                   <Dropdown id={ this.getId() }>
-                  <Button className='dropdown-select' bsRole='toggle' bsStyle="info">{ this.state.selectMonth }<i class="fa fa-chevron-down" aria-hidden="true"></i></Button>
+                  <Button className='dropdown-select' bsRole='toggle' bsStyle="info">{ displayMonths }<i class="fa fa-chevron-down" aria-hidden="true"></i></Button>
                     <Dropdown.Menu bsRole='menu'>
                     { months.map((month, key) =>
                       <MenuItem key={ key } eventKey={ month } onSelect={this._handleSelectedMonth}>{ month }</MenuItem>
@@ -123,7 +128,7 @@ export default class AddressDropdown extends React.PureComponent {
                   <p>Your address:</p>
                   <div className='input-container'>
                   <input onChange={this.handleChange} className='search-address' placeholder="Enter a search term" />
-                  <i className="fa fa-search" onClick={this.getAddresses} aria-hidden="true"></i>
+                  <button className="search-button" onClick={this.getAddresses}><i className="fa fa-search" aria-hidden="true"></i></button>
                   </div>
               </div>
 

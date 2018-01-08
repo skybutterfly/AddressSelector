@@ -1,5 +1,8 @@
 require('../scss/main.scss');
-require("font-awesome-sass-loader");
+require('font-awesome-sass-loader');
+require('../fonts/font-brown-bold/brown.scss');
+require('../fonts/font-brown-light/brown.scss');
+require('../fonts/font-brown-regular/brown.scss');
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -41,7 +44,7 @@ export default class App extends React.PureComponent {
 
     return (
         <div>
-            <h1 className='intro-component'>octopusLabs</h1>
+            <h1 className='intro-component'><strong>octopus</strong>labs</h1>
 
             <h1>Home address</h1>
             <p className='heading'>Please enter the directors home address for the last 3 years.</p>

@@ -8,7 +8,7 @@ $border-style: #62d8ef;
 $heding-color: #37cbea;
 
 $text-font: 'Roboto';
-$title-font: 'CoHeadline';
+$title-font: 'coHeadline';
 
 $text-large: 32px;
 $text-small: 14px;
@@ -18,15 +18,24 @@ body {
   color: $text-color;
   text-align: center;
   padding-top: 15px;
-  font-family: $text-font;
   background: linear-gradient(to bottom right, $body-upper, $body-upper);
 
   p {
+    font-family: 'Brown Light';
     font-size: $text-small;
   }
+
+  strong {
+    font-family: 'Brown Regular';
+  }
+
   h1 {
-    font-family: $text-font;
+    font-family: 'Brown Light';
     font-size: $text-large;
+
+    strong {
+      font-family: 'Brown Bold';
+    }
   }
   input {
     background: transparent;
@@ -55,7 +64,7 @@ body {
     display: flex;
     background: $body-upper;
     margin: auto;
-    padding: 20px;
+    padding-left: 20px;
     width: 468px;
     border-style: solid;
     border-width: 2px;
@@ -84,6 +93,7 @@ body {
   }
 
   .dropdown-select {
+    font-family: 'Brown Regular';
     display: inline-flex;
     background: $body-upper;
     margin: auto;
@@ -98,6 +108,7 @@ body {
 }
 
 .dropdown-address {
+  font-family: 'Brown Regular';
   display: flex;
   background: $body-upper;
   margin: auto;
@@ -109,6 +120,7 @@ body {
 }
 
 .confirm {
+  font-family: 'Brown Regular';
   background: $text-color;
   color: $confirm-text;
   font-weight: 400;
@@ -118,9 +130,12 @@ body {
   height: 50px;
 }
 
-.fa-search {
-  margin: auto;
-  margin-right: 0;
+.search-button {
+  width: 50px;
+  height: 50px;
+  margin-left: 150px;
+  background: transparent;
+  border-style: none;
   cursor: pointer;
 }
 

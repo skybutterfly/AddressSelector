@@ -5,8 +5,8 @@
 4. Navigate to localhost:8080
 
 ## To do:
-* Styling
-* Add fonts
-* Clean code
-* Add/optimise validation
+* Fix Styling
+* Missing logo
+* Clean code/scss
+* Add/optimise validation (postcode, empty fields)
 * Optimise functionality
